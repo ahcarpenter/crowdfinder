@@ -7,7 +7,7 @@ h1 Events
         - if eventbrite_event.logo
           = image_tag eventbrite_event.logo[:url], alt: 'logo'
         - else
-          img data-src='holder.js/250x100' alt='placeholder'
+          img data-src='holder.js/400x200' alt='placeholder'
       .caption.clearfix
         h3 = link_to truncate(eventbrite_event.name[:text], length: 25), eventbrite_event
         p 
