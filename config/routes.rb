@@ -1,17 +1,9 @@
 Rails.application.routes.draw do
   namespace :eventbrite do
-    end
-  namespace :eventbrite do
-    resources :venues
-  end
-  namespace :eventbrite do
-    resources :ticket_classes
-  end
-  namespace :eventbrite do
-    resources :organizers
-  end
-  namespace :eventbrite do
     resources :events
+    resources :organizers
+    resources :ticket_classes
+    resources :venues
   end
 
   devise_for :users
