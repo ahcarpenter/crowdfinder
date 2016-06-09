@@ -144,6 +144,7 @@ GEM
     kaminari (0.17.0)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    kgio (2.10.0)
     launchy (2.4.3)
       addressable (~> 2.3)
     listen (3.0.8)
@@ -360,6 +361,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   kaminari
+  kgio
   launchy
   listen (~> 3.0.5)
   oauth2
