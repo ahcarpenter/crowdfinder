@@ -5,12 +5,16 @@ html
     title
       = content_for?(:title) ? yield(:title) : 'Crowdfinder'
     meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Crowdfinder'}"
-    == stylesheet_link_tag "application", :media => 'all', 'data-turbolinks-track' => true
-    == javascript_include_tag 'application', 'data-turbolinks-track' => true
-    == csrf_meta_tags
+    link href="https://fonts.googleapis.com/css?family=Open+Sans:800italic" rel="stylesheet" type="text/css"
+    link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"
+    link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet"
+    = stylesheet_link_tag "application", :media => 'all', 'data-turbolinks-track' => true
+    = csrf_meta_tags
   body
     header
-      == render 'layouts/navigation'
-    main[role="main"]
-      == render 'layouts/messages'
-      == yield
+      = render 'layouts/navigation'
+    .container-fluid
+      = render 'layouts/messages'
+      = yield
+    = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.3/holder.min.js'
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true

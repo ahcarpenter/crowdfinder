@@ -1,0 +1,2 @@
+module Eventbrite::TicketClassesHelper
+end

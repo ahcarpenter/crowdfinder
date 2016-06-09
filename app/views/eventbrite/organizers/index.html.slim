@@ -1,0 +1,19 @@
+h1 Listing eventbrite_organizers
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @eventbrite_organizers.each do |eventbrite_organizer|
+      tr
+        td = link_to 'Show', eventbrite_organizer
+        td = link_to 'Edit', edit_eventbrite_organizer_path(eventbrite_organizer)
+        td = link_to 'Destroy', eventbrite_organizer, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Organizer', new_eventbrite_organizer_path

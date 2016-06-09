@@ -1,0 +1,19 @@
+h1 Listing eventbrite_venues
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @eventbrite_venues.each do |eventbrite_venue|
+      tr
+        td = link_to 'Show', eventbrite_venue
+        td = link_to 'Edit', edit_eventbrite_venue_path(eventbrite_venue)
+        td = link_to 'Destroy', eventbrite_venue, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Venue', new_eventbrite_venue_path

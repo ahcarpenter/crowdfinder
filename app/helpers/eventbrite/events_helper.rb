@@ -1,0 +1,2 @@
+module Eventbrite::EventsHelper
+end
