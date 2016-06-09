@@ -72,6 +72,7 @@ GEM
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.2)
     connection_pool (2.2.0)
+    dalli (2.7.6)
     database_cleaner (1.5.3)
     debug_inspector (0.0.2)
     devise (4.1.1)
@@ -153,10 +154,6 @@ GEM
     lumberjack (1.0.10)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
-    memcached (1.8.0)
-    memcached_store (0.12.7)
-      activesupport (>= 3.2)
-      memcached (~> 1.8.0)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
@@ -348,6 +345,7 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails (~> 4.1.0)
+  dalli
   database_cleaner
   devise
   devise_invitable
@@ -364,7 +362,6 @@ DEPENDENCIES
   kaminari
   launchy
   listen (~> 3.0.5)
-  memcached_store
   oauth2
   pg
   pry-rails
