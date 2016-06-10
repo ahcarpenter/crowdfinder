@@ -1,0 +1,1 @@
+Figaro.require_keys('EVENTBRITE_ACCESS_TOKEN', 'SECRET_KEY_BASE')

@@ -1,4 +1,4 @@
-require "application_responder"
+require 'application_responder'
 require 'kaminari/her_collection'
 
 class ApplicationController < ActionController::Base
