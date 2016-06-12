@@ -1,5 +1,4 @@
-class Eventbrite::Event
-  include Her::Model
+class Eventbrite::Event < Eventbrite::Model
   include Kaminari::HerCollection
 
   parse_root_in_json true, format: :active_model_serializers

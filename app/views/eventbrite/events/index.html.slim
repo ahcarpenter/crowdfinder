@@ -15,4 +15,8 @@ h1 Events
         p
           span.label.label-info = truncate(eventbrite_event.organizer.name, length: 30)
           = link_to 'More info', eventbrite_event, class: 'btn btn-default pull-right', role: 'button'
-= paginate @eventbrite_events
+.container-fluid.text-center
+  .hidden-xs  
+    = paginate @eventbrite_events
+  .hidden-sm.hidden-md.hidden-lg  
+    = paginate @eventbrite_events, window: 1

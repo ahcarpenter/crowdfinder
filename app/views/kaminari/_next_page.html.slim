@@ -1,0 +1,9 @@
+- if current_page.last?
+  li.disabled
+    = link_to content_tag(:span, '', class: 'glyphicon glyphicon-menu-right'),
+      '', rel: 'next', remote: remote
+- else
+  li
+    = link_to content_tag(:span, '', class: 'glyphicon glyphicon-menu-right'),
+      url, rel: 'next', remote: remote
+

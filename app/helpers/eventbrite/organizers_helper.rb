@@ -1,2 +1,0 @@
-module Eventbrite::OrganizersHelper
-end

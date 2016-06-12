@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
-  namespace :eventbrite do
-    resources :events
-    resources :organizers
-    resources :ticket_classes
-    resources :venues
+  concern :paginatable do
+    get '(page/:page)', action: :index, on: :collection, as: ''
   end
 
-  devise_for :users
+  namespace :eventbrite do
+    resources :events, concerns: :paginatable
+    resources :organizers, concerns: :paginatable
+  end
 
   root 'eventbrite/events#index'
 end
