@@ -4,7 +4,7 @@ class Eventbrite::EventsController < ApplicationController
   respond_to :html, :json
 
   def index
-    @eventbrite_events = Eventbrite::Event.popular.by_address('Los Angeles, CA')
+    @eventbrite_events = Eventbrite::Event.by_address('Los Angeles, CA')
       .page(params[:page])
 
     respond_with(@eventbrite_events)

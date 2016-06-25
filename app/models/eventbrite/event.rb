@@ -11,5 +11,4 @@ class Eventbrite::Event < Eventbrite::Model
   resource_path '/events/:id'
 
   scope :by_address, ->(address) { where('location.address' => address) }
-  scope :popular, -> { where(popular: 'on') }
 end
