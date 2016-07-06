@@ -4,8 +4,6 @@ class Eventbrite::Event < Eventbrite::Model
   parse_root_in_json true, format: :active_model_serializers
 
   belongs_to :organizer
-  belongs_to :venue
-  has_many :ticket_classes
 
   collection_path '/events/search'
   resource_path '/events/:id'

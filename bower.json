@@ -1,0 +1,23 @@
+{
+  "name": "crowdfinder",
+  "homepage": "https://github.com/ahcarpenter/crowdfinder",
+  "authors": [
+    "Andrew H. Carpenter <drewwcarpenter@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "^3.3.6",
+    "spin.js": "^2.3.2"
+  }
+}

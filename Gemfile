@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.3.0'
+ruby '2.3.1'
 
-gem 'bootstrap-sass'
+gem 'active_model_serializers', '~> 0.10.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'dalli'
 gem 'faraday_middleware'
@@ -11,7 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'jquery-rails'
 gem 'kaminari'
 gem 'kgio'
-# gem 'memcached_store'
+gem 'yajl-ruby', require: 'yajl'
 gem 'oauth2'
 gem 'pg'
 gem 'puma', '~> 3.0'
@@ -22,9 +22,10 @@ gem 'sendgrid'
 gem 'sidekiq'
 gem 'simple_form'
 gem 'slim-rails'
-gem 'turbolinks', '~> 5.x'
+# gem 'turbolinks', '~> 5.x'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'uglifier', '>= 1.3.0'
+gem 'react-rails'
 
 group :development do
   gem 'better_errors'
@@ -37,6 +38,7 @@ group :development do
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false
   gem 'rb-inotify', :require=>false
+  gem 'react-rails-hot-loader'
   gem 'spring'
   gem 'spring-commands-rspec'
   gem 'spring-watcher-listen', '~> 2.0.0'

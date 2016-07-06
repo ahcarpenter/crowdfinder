@@ -12,6 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require bootstrap-sprockets
+//= require bootstrap-sass/assets/javascripts/bootstrap-sprockets
+//= require spin.js/spin.min
+//= require react
+//= require react_ujs
+//= require components
+//= require react-rails-hot-loader
 //= require_tree .

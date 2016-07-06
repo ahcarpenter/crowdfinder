@@ -42,6 +42,6 @@ class Eventbrite::OrganizersController < ApplicationController
     end
 
     def eventbrite_organizer_params
-      params[:eventbrite_organizer]
+      params.require(:eventbrite_organizer)
     end
 end

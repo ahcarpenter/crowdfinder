@@ -4,10 +4,16 @@ class Eventbrite::EventsController < ApplicationController
   respond_to :html, :json
 
   def index
+    # @eventbrite_events = Eventbrite::Event.popular.by_address('Los Angeles, CA')
+    #   .page(params[:page])
     @eventbrite_events = Eventbrite::Event.by_address('Los Angeles, CA')
       .page(params[:page])
 
-    respond_with(@eventbrite_events)
+    # binding.pry
+
+    # respond_with(@eventbrite_events, options: {serialization_context: ActiveModelSerializers::SerializationContext.new(request, url_options.dup)})
+    # binding.pry
+    respond_with(@eventbrite_events, include: '*')
   end
 
   def show
@@ -44,6 +50,6 @@ class Eventbrite::EventsController < ApplicationController
     end
 
     def eventbrite_event_params
-      params[:eventbrite_event]
+      params.require(:eventbrite_event)
     end
 end
