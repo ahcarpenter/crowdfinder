@@ -1,19 +1,22 @@
 class Eventbrite::EventsController < ApplicationController
   before_action :set_eventbrite_event, only: [:show, :edit, :update, :destroy]
+  # decorates_assigned :event
 
   respond_to :html, :json
 
   def index
-    # @eventbrite_events = Eventbrite::Event.popular.by_address('Los Angeles, CA')
-    #   .page(params[:page])
     @eventbrite_events = Eventbrite::Event.by_address('Los Angeles, CA')
       .page(params[:page])
 
-    # binding.pry
+    @eventbrite_events = Eventbrite::EventDecorator.decorate_collection(@eventbrite_events)
 
-    # respond_with(@eventbrite_events, options: {serialization_context: ActiveModelSerializers::SerializationContext.new(request, url_options.dup)})
-    # binding.pry
-    respond_with(@eventbrite_events, include: '*')
+    meta = {
+      current_page: @eventbrite_events.current_page,
+      total_pages: @eventbrite_events.total_pages,
+      total_count: @eventbrite_events.total_count
+    }
+
+    respond_with(@eventbrite_events, each_serializer: Eventbrite::EventSerializer, include: :*, meta: meta)
   end
 
   def show
