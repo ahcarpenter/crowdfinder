@@ -20,6 +20,7 @@ class Eventbrite::EventsController < ApplicationController
   end
 
   def show
+    session[:referer] ||= request.referer
     respond_with(@eventbrite_event)
   end
 

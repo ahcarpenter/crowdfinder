@@ -13,5 +13,5 @@ h3 Organizer
 = @eventbrite_event.organizer.name
 br
 br
-= link_to 'Back', eventbrite_events_path, class: 'btn btn-default', role: 'button'
+= link_to 'Back', session.delete(:referer), class: 'btn btn-default', role: 'button'
 = link_to 'View on Eventbrite', @eventbrite_event.url, class: 'btn btn-primary pull-right', role: 'button'
