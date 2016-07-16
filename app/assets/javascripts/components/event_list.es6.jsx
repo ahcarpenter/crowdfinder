@@ -19,7 +19,7 @@ class EventList extends React.Component {
       );
     });
     return (
-      <div className='eventList'>
+      <div className='eventList row'>
         {eventNodes}
       </div>
     );
