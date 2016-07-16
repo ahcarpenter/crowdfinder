@@ -8,6 +8,14 @@ class Eventbrite::EventDecorator < ApplicationDecorator
   end
 
   def capacity
-    number_to_human(object.capacity)
+    number_to_human object.capacity
+  end
+
+  def start
+    strtime_to_long_ordinal(object.start['local'])
+  end
+
+  def end
+    strtime_to_long_ordinal(object.end['local'])
   end
 end

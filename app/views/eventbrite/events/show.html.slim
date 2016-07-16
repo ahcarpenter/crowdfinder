@@ -3,15 +3,14 @@ p#notice = notice
 h2 = link_to @eventbrite_event.name[:text], @eventbrite_event.url
 p == @eventbrite_event.description[:html]
 h4 Start
-= @eventbrite_event.start
+= eventbrite_event.start
 h4 End
-= @eventbrite_event.end
+= eventbrite_event.end
 h3 Capacity
-= number_to_human(@eventbrite_event.capacity)
-br
+= number_to_human @eventbrite_event.capacity
 h3 Organizer
-= @eventbrite_event.organizer.name
+p= @eventbrite_event.organizer.name
 br
-br
-= link_to 'Back', session.delete(:referer), class: 'btn btn-default', role: 'button'
-= link_to 'View on Eventbrite', @eventbrite_event.url, class: 'btn btn-primary pull-right', role: 'button'
+p
+  = link_to 'Back', session.delete(:referer), class: 'btn btn-default', role: 'button'
+  = link_to 'View on Eventbrite', @eventbrite_event.url, class: 'btn btn-primary pull-right', role: 'button'

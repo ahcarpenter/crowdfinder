@@ -4,14 +4,13 @@ class EventContainer extends React.Component {
     this.state = {
       data: [],
       included: [],
-      meta: [],
-      page: this.props.url
+      meta: []
     };
   }
   loadEventsFromServer () {
     var spinner = new Spinner().spin(document.getElementById('spinner'));
     $.ajax({
-      url: this.state.page,
+      url: this.props.url,
       dataType: 'json',
       cache: false,
       success: (response) => {

@@ -4,6 +4,6 @@ class Eventbrite::OrganizerSerializer < ApplicationSerializer
   has_many :events
 
   def name
-    object.name.truncate(30) if object.name
+    object.decorate.name
   end
 end

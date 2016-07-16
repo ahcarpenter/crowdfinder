@@ -1,6 +1,6 @@
 class Eventbrite::EventsController < ApplicationController
   before_action :set_eventbrite_event, only: [:show, :edit, :update, :destroy]
-  # decorates_assigned :event
+  decorates_assigned :eventbrite_events, :eventbrite_event
 
   respond_to :html, :json
 
@@ -8,15 +8,16 @@ class Eventbrite::EventsController < ApplicationController
     @eventbrite_events = Eventbrite::Event.by_address('Los Angeles, CA')
       .page(params[:page])
 
-    @eventbrite_events = Eventbrite::EventDecorator.decorate_collection(@eventbrite_events)
-
-    meta = {
-      current_page: @eventbrite_events.current_page,
-      total_pages: @eventbrite_events.total_pages,
-      total_count: @eventbrite_events.total_count
-    }
-
-    respond_with(@eventbrite_events, each_serializer: Eventbrite::EventSerializer, include: :*, meta: meta)
+    respond_with(
+      eventbrite_events,
+      each_serializer: Eventbrite::EventSerializer,
+      include: :*,
+      meta: {
+        current_page: @eventbrite_events.current_page,
+        total_pages: @eventbrite_events.total_pages,
+        total_count: @eventbrite_events.total_count
+      }
+    )
   end
 
   def show
@@ -26,7 +27,7 @@ class Eventbrite::EventsController < ApplicationController
 
   def new
     @eventbrite_event = Eventbrite::Event.new
-    respond_with(@eventbrite_event)
+    respond_with(eventbrite_event)
   end
 
   def edit
