@@ -12,9 +12,8 @@ module Kaminari
       def new_collection(parsed_data)
         collection = super(parsed_data)
         pagination = collection.metadata[:pagination]
-        Kaminari.paginate_array(collection, total_count: collection.size)
-          .page(pagination[:page_number])
-          .per(pagination[:page_size])
+        Kaminari.paginate_array(collection, total_count: 50000)
+          .page(pagination[:page_number]).per(50)
       end
     end
   end

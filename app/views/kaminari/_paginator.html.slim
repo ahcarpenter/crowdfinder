@@ -1,13 +1,4 @@
 = paginator.render do
   ul.pagination
     == prev_page_tag
-    - unless current_page.first? || params[:page].to_i > window - 1 && params[:page].to_i < window + 2
-      == first_page_tag
-    == gap_tag if params[:page].to_i > window + 2
-    - each_page do |page|
-      - if page.left_outer? || page.right_outer? || page.inside_window?
-        == page_tag page
-    == gap_tag if params[:page].to_i < total_pages - 3
-    - unless current_page.last? || params[:page].to_i > total_pages - 3
-      == last_page_tag
     == next_page_tag
