@@ -31,7 +31,7 @@ module Crowdfinder
     # config.cache_store = :memcached_store,
     #   Memcached::Rails.new(servers: ['127.0.0.1:11211'], default_ttl: 1800)
     config.cache_store = :dalli_store,
-      '127.0.0.1:11211', {expires_in: 1800, compress: true}
+      '127.0.0.1:11211', {expires_in: 3600, compress: true, pool_size: 5, threadsafe: true}
 
     config.secret_key_base = ENV['SECRET_KEY_BASE']
 

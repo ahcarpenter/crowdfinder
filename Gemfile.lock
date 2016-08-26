@@ -370,6 +370,7 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails (~> 4.1.0)
+  connection_pool
   dalli
   database_cleaner
   draper

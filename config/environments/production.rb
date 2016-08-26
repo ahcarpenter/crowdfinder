@@ -102,7 +102,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.cache_store = :dalli_store, (ENV['MEMCACHIER_SERVERS'] || '').split(','), {expires_in: 1800, compress: true,
-    username: ENV["MEMCACHIER_USERNAME"], password: ENV["MEMCACHIER_PASSWORD"]
+  config.cache_store = :dalli_store, (ENV['MEMCACHIER_SERVERS'] || '').split(','), {expires_in: 3600, compress: true,
+    username: ENV["MEMCACHIER_USERNAME"], password: ENV["MEMCACHIER_PASSWORD"], pool_size: 5, threadsafe: true
   }
 end
