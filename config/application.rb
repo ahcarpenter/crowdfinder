@@ -47,5 +47,7 @@ module Crowdfinder
     ::Sass::Script::Value::Number.precision = [8, ::Sass::Script::Value::Number.precision].max
 
     ActiveModelSerializers.config.adapter = :json_api
+
+    config.react.addons = true
   end
 end
