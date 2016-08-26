@@ -1,4 +1,15 @@
 GIT
+  remote: git://github.com/audionerd/draper.git
+  revision: e816e0e5876b76c648c0928f1c3f2aa2c7a3d1f2
+  branch: rails5
+  specs:
+    draper (2.1.0)
+      actionpack (>= 3.0)
+      activemodel (>= 3.0)
+      activesupport (>= 3.0)
+      request_store (~> 1.0)
+
+GIT
   remote: https://github.com/rails/activemodel-serializers-xml
   revision: 570ee7ed33d60e44ca1f3ccbec3d1fbf61d52cbf
   specs:
@@ -89,11 +100,6 @@ GEM
     database_cleaner (1.5.3)
     debug_inspector (0.0.2)
     diff-lcs (1.2.5)
-    draper (2.1.0)
-      actionpack (>= 3.0)
-      activemodel (>= 3.0)
-      activesupport (>= 3.0)
-      request_store (~> 1.0)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -373,7 +379,7 @@ DEPENDENCIES
   connection_pool
   dalli
   database_cleaner
-  draper
+  draper!
   factory_girl_rails
   faker
   faraday_middleware
