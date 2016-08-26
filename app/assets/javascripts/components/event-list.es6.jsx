@@ -1,4 +1,4 @@
-let ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
+// let ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 class EventList extends React.Component {
   organizerName (id) {
@@ -22,9 +22,7 @@ class EventList extends React.Component {
     });
     return (
       <div className='eventList row'>
-        <ReactCSSTransitionGroup transitionName="event" transitionEnterTimeout={500} transitionLeaveTimeout={300}>
-          {eventNodes}
-        </ReactCSSTransitionGroup>
+        {eventNodes}
       </div>
     );
   }
