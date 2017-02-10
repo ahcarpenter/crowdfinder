@@ -32,5 +32,10 @@ body {
 }
 
 .card-subtitle span {
-  margin-bottom: 6px;
+  margin: 3px 0 6px 0;
+  max-width: 60%;
+}
+
+.card-title {
+  color: rgba(0,0,0, .65)
 }
