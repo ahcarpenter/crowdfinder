@@ -1,0 +1,26 @@
+$icon-font-path: 'bootstrap-sass/assets/fonts/bootstrap/';
+@import 'bootstrap-sass/assets/stylesheets/bootstrap-sprockets';
+@import 'bootstrap-custom';
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: #F8F8FA;
+}
+
+.navbar-brand img {
+  height: 41px;
+  margin-top: -11px;
+  float: left;
+  padding-right: 6px;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  font-size: 22px;
+  font-family: Open Sans;
+  font-style: italic;
+}
+
+.spinner {
+  position: fixed !important
+}

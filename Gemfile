@@ -17,7 +17,8 @@ gem 'yajl-ruby', require: 'yajl'
 gem 'oauth2'
 gem 'pg'
 gem 'puma', '~> 3.0'
-gem 'rails', '>= 5.0.0.rc1', '< 5.1'
+gem 'rails', '~> 5.0'
+gem 'webpacker', github: 'rails/webpacker'
 gem 'responders'
 gem 'sass-rails', '~> 5.0'
 gem 'sendgrid'
@@ -36,7 +37,7 @@ group :development do
   gem 'guard-rails'
   gem 'guard-rspec'
   gem 'listen', '~> 3.0.5'
-  gem 'quiet_assets'
+  # gem 'quiet_assets'
   gem 'rails_layout'
   gem 'rb-fchange', :require=>false
   gem 'rb-fsevent', :require=>false

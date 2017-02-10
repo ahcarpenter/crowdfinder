@@ -2,7 +2,7 @@ class ApplicationDecorator < Draper::Decorator
   delegate_all
 
   private
-    def strtime_to_long_ordinal(time)
-      DateTime.parse(time).to_s(:long_ordinal)
+    def strdate_to_human(str)
+      str.to_time.strftime("%b %-d, %Y @ %l %P")
     end
 end

@@ -6,12 +6,12 @@ class Eventbrite::EventsController < ApplicationController
 
   def index
     @eventbrite_events = Eventbrite::Event.by_address('Los Angeles, CA')
+      .where(sort_by: 'best', expand: 'organizer')
       .page(params[:page])
 
     respond_with(
       eventbrite_events,
       each_serializer: Eventbrite::EventSerializer,
-      include: :*,
       meta: {
         current_page: @eventbrite_events.current_page,
         total_pages: @eventbrite_events.total_pages,
@@ -21,8 +21,7 @@ class Eventbrite::EventsController < ApplicationController
   end
 
   def show
-    session[:referer] ||= request.referer
-    respond_with(@eventbrite_event)
+    respond_with(eventbrite_event, serializer: Eventbrite::EventSerializer)
   end
 
   def new
@@ -36,17 +35,17 @@ class Eventbrite::EventsController < ApplicationController
   def create
     @eventbrite_event = Eventbrite::Event.new(eventbrite_event_params)
     @eventbrite_event.save
-    respond_with(@eventbrite_event)
+    respond_with(eventbrite_event)
   end
 
   def update
     @eventbrite_event.update(eventbrite_event_params)
-    respond_with(@eventbrite_event)
+    respond_with(eventbrite_event)
   end
 
   def destroy
     @eventbrite_event.destroy
-    respond_with(@eventbrite_event)
+    respond_with(eventbrite_event)
   end
 
   private

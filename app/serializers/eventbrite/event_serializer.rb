@@ -1,7 +1,12 @@
 class Eventbrite::EventSerializer < ApplicationSerializer
-  attributes :name, :capacity, :logo, :description, :start, :end
+  attributes :name, :long_name, :capacity, :logo,
+    :description, :start, :end, :organizer, :url
 
-  belongs_to :organizer do
-    object.organizer.fetch
+  def organizer
+    Eventbrite::OrganizerSerializer.new(object.organizer)
+  end
+
+  def description
+    object.description[:html]
   end
 end

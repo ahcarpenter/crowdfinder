@@ -7,15 +7,19 @@ class Eventbrite::EventDecorator < ApplicationDecorator
     object.name[:text].truncate(25)
   end
 
+  def long_name
+    object.name[:text]
+  end
+
   def capacity
     number_to_human object.capacity
   end
 
   def start
-    strtime_to_long_ordinal(object.start['local'])
+    strdate_to_human(object.start['local'])
   end
 
   def end
-    strtime_to_long_ordinal(object.end['local'])
+    strdate_to_human(object.end['local'])
   end
 end
