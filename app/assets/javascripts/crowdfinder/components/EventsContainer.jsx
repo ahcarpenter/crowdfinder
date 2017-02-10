@@ -20,11 +20,11 @@ export default class EventsContainer extends React.Component {
     super(props);
     this.state = {
       events: [],
-      currentPage: props.params.page !== undefined ? props.params.page : 1
+      currentPage: props.params.page !== undefined ? parseInt(props.params.page) : 1
     };
   }
-  changePage (offsetFromCurrentPage) {
-    this.setState({currentPage: this.state.currentPage + offsetFromCurrentPage}, () => {
+  changePage (offset) {
+    this.setState({currentPage: this.state.currentPage + offset}, () => {
       this.loadEventsFromServer()
     });
   }
@@ -51,11 +51,14 @@ export default class EventsContainer extends React.Component {
   }
   componentWillReceiveProps (nextProps) {
     if (nextProps.location.action === 'POP') {
-      let page =  nextProps.params.page;
-      this.changePage((page ? page : 1) - this.state.currentPage)
+      const page =  nextProps.params.page;
+      this.changePage(parseInt(page) - this.state.currentPage)
     }
   }
   render () {
+    let prevPage = this.state.currentPage - 1
+    if (prevPage < 1) {prevPage = 1}
+
     return (
       <div className='eventsContainer'>
         <EventList events={this.state.events} />
@@ -63,7 +66,7 @@ export default class EventsContainer extends React.Component {
           <li>
             <LinkContainer
               disabled={this.state.currentPage === 1}
-              to={{pathname: `/eventbrite/events/page/${this.state.currentPage - 1}`}}
+              to={{pathname: `/eventbrite/events/page/${prevPage}`}}
               onClick={() => this.changePage(-1)}
             >
               <Button>Previous</Button>
