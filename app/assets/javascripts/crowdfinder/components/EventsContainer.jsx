@@ -24,7 +24,7 @@ export default class EventsContainer extends React.Component {
     };
   }
   changePage (offsetFromCurrentPage) {
-    this.setState({currentPage: parseInt(this.state.currentPage) + parseInt(offsetFromCurrentPage)}, () => {
+    this.setState({currentPage: this.state.currentPage + offsetFromCurrentPage}, () => {
       this.loadEventsFromServer()
     });
   }
@@ -48,6 +48,12 @@ export default class EventsContainer extends React.Component {
   componentDidMount () {
     this.loadEventsFromServer();
     setInterval(this.loadEventsFromServer, 1800000);
+  }
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.location.action === 'POP') {
+      let page =  nextProps.params.page;
+      this.changePage((page ? page : 1) - this.state.currentPage)
+    }
   }
   render () {
     return (
