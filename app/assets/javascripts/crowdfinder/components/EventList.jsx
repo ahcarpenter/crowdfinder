@@ -2,6 +2,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import EventThumbnail from './EventThumbnail.jsx'
+import {CardDeck} from 'reactstrap';
 
 export default class EventList extends React.Component {
   render () {
@@ -18,9 +19,11 @@ export default class EventList extends React.Component {
       );
     });
     return (
-      <div className='eventList row'>
+      <div className='eventList'>
         <h1>Events</h1>
-        {eventThumbnailNodes}
+        <CardDeck>
+          {eventThumbnailNodes}
+        </CardDeck>
       </div>
     );
   }

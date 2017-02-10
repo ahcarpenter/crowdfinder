@@ -1,27 +1,7 @@
-.event-enter {
-  opacity: 0.01;
+.eventsContainer, .event {
+  margin-top: 24px;
 }
 
-.event-enter.event-enter-active {
-  opacity: 1;
-  transition: opacity 500ms ease-in;
-}
-
-.event-leave {
-  opacity: 1;
-}
-
-.event-leave.event-leave-active {
-  opacity: 0.01;
-  transition: opacity 300ms ease-in;
-}
-
-.event-thumbnail .eventName {
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.event-image {
-  height: 175px;
-  background-size: cover;
+.pagination {
+  justify-content: center;
 }

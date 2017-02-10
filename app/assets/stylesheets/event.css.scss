@@ -4,7 +4,6 @@
 
 .event-show-page-buttons {
   margin: 24px 0 12px 0;
-  display: inline-block;
   float: right;
 
   .btn {
@@ -14,5 +13,9 @@
   .btn-primary {
     margin-left: 6px;
   }
+}
+
+.card {
+  margin-bottom: 24px;
 }
 

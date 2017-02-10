@@ -1,17 +1,19 @@
-$icon-font-path: 'bootstrap-sass/assets/fonts/bootstrap/';
-@import 'bootstrap-sass/assets/stylesheets/bootstrap-sprockets';
-@import 'bootstrap-custom';
-
 body {
-  font-family: 'Montserrat', sans-serif;
-  background-color: #F8F8FA;
+  font-family: 'Montserrat', sans-serif !important;
+  background-color: #f7f7f7 !important;
 }
 
-.navbar-brand img {
-  height: 41px;
-  margin-top: -11px;
-  float: left;
-  padding-right: 6px;
+.navbar-brand {
+  img {
+    padding-right: 6px;
+  }
+  span {
+    color: #fff;
+
+    &:hover {
+      color: rgba(255, 255, 255, .95);
+    }
+  }
 }
 
 .navbar-brand {
@@ -23,4 +25,12 @@ body {
 
 .spinner {
   position: fixed !important
+}
+
+.bg-faded {
+  background-color: #222222 !important
+}
+
+.card-subtitle span {
+  margin-bottom: 6px;
 }

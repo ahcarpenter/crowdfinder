@@ -12,8 +12,9 @@ import EventList from './EventList.jsx'
 import Spinner from 'spin.js'
 import 'whatwg-fetch'
 import $ from 'jquery'
-import {Button} from 'react-bootstrap';
+import {Button} from 'reactstrap';
 import {LinkContainer} from 'react-router-bootstrap';
+import {Pagination, PaginationItem, PaginationLink} from 'reactstrap';
 
 export default class EventsContainer extends React.Component {
   constructor (props) {
@@ -38,7 +39,7 @@ export default class EventsContainer extends React.Component {
       .then((json) => {
         this.setState({events: json.data});
         spinner.stop();
-        $('.pager').removeAttr('hidden')
+        $('.pagination').removeAttr('hidden')
       })
       .catch((err) => {
         console.error(err);
@@ -62,26 +63,25 @@ export default class EventsContainer extends React.Component {
     return (
       <div className='eventsContainer'>
         <EventList events={this.state.events} />
-        <ul hidden className="pager">
-          <li>
-            <LinkContainer
-              disabled={this.state.currentPage === 1}
-              to={{pathname: `/eventbrite/events/page/${prevPage}`}}
-              onClick={() => this.changePage(-1)}
-            >
-              <Button>Previous</Button>
-            </LinkContainer>
-          </li>
-          {' '}
-          <li>
-            <LinkContainer
-              to={{pathname: `/eventbrite/events/page/${this.state.currentPage + 1}`}}
-              onClick={() => this.changePage(1)}
-            >
-              <Button>Next</Button>
-            </LinkContainer>
-          </li>
-        </ul>
+          <Pagination hidden>
+            <PaginationItem disabled={this.state.currentPage === 1}>
+              <LinkContainer
+                to={{pathname: `/eventbrite/events/page/${prevPage}`}}
+                onClick={() => this.changePage(-1)}
+              >
+                <PaginationLink>Previous</PaginationLink>
+              </LinkContainer>
+            </PaginationItem>
+            <PaginationItem>
+              <LinkContainer
+                to={{pathname: `/eventbrite/events/page/${this.state.currentPage + 1}`}}
+                onClick={() => this.changePage(1)}
+                key=""
+              >
+                <PaginationLink>Next</PaginationLink>
+              </LinkContainer>
+            </PaginationItem>
+          </Pagination>
       </div>
     );
   }

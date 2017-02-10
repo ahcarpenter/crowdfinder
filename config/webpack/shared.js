@@ -38,6 +38,10 @@ module.exports = {
           runner: 'DISABLE_SPRING=1 ../bin/rails runner'
         }
       },
+      {
+        test: /\.css$/,
+        use: [ 'style-loader', 'css-loader' ]
+      }
     ]
   },
 
