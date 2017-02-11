@@ -27,15 +27,14 @@ body {
   position: fixed !important
 }
 
-.bg-faded {
+.navbar {
   background-color: #222222 !important
 }
 
-.card-subtitle span {
-  margin: 3px 0 6px 0;
-  max-width: 60%;
+.card-subtitle {
+  margin-bottom: 18px !important;
 }
 
 .card-title {
-  color: rgba(0,0,0, .65)
+  color: rgba(0,0,0,.65)
 }

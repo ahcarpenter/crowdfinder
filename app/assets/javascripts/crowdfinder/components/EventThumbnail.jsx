@@ -13,10 +13,10 @@ export default class EventThumbnail extends React.Component {
           <CardBlock>
             <h1>{this.props.capacity}</h1>
             <CardTitle>{this.props.name}</CardTitle>
-            <CardSubtitle><Badge color="success">{this.props.organizerName}</Badge></CardSubtitle>
+            <CardSubtitle><Badge color="info">{this.props.organizerName}</Badge></CardSubtitle>
             <Link
               to={`/eventbrite/events/${this.props.id}`}
-              className='btn btn-secondary pull-right'
+              className='btn btn-secondary'
             >
               More info
             </Link>

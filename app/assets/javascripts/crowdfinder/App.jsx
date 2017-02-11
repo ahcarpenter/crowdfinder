@@ -7,9 +7,9 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import React from 'react'
-import EventsContainer from './components/EventsContainer.jsx'
+import Events from './components/Events.jsx'
 import Event from './components/Event.jsx'
-import {Router, Route, Link, IndexRoute, hashHistory, browserHistory} from 'react-router'
+import {Router, Route, Link, IndexRoute, browserHistory} from 'react-router'
 import 'bootstrap/dist/css/bootstrap.css';
 
 function NotFound() {
@@ -20,7 +20,7 @@ export default class App extends React.Component {
   render () {
     return (
       <Router history={browserHistory}>
-        <Route path='/(eventbrite/events/page/:page)' component={EventsContainer} />
+        <Route path='/(eventbrite/events/page/:page)' component={Events} />
         <Route path='/eventbrite/events(/:id)' component={Event} />
         <Route path='*' component={NotFound} />
       </Router>
