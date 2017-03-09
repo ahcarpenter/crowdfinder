@@ -13,9 +13,8 @@ html
     = stylesheet_link_tag 'application', :media => 'all'
     = csrf_meta_tags
   body
-    = render 'layouts/navigation'
     #spinner
-    .container#content
+    #content
     = javascript_include_tag 'https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.3/holder.min.js'
     = javascript_include_tag 'application'
     = javascript_pack_tag 'main'

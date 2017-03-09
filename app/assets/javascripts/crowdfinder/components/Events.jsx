@@ -6,23 +6,26 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-import React from 'react'
-import ReactDOM from 'react-dom'
-import EventThumbnail from './EventThumbnail.jsx'
-import Spinner from 'spin.js'
-import 'whatwg-fetch'
-import $ from 'jquery'
-import {Button} from 'reactstrap';
+import React from 'react';
+import ReactDOM from 'react-dom';
+import EventThumbnail from './EventThumbnail.jsx';
+import Spinner from 'spin.js';
+import 'whatwg-fetch';
+import $ from 'jquery';
 import {LinkContainer} from 'react-router-bootstrap';
-import {Pagination, PaginationItem, PaginationLink, CardDeck} from 'reactstrap';
+import {Button, Pagination, PaginationItem, PaginationLink, CardDeck} from 'reactstrap';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class Events extends React.Component {
   constructor (props) {
     super(props);
     this.state = {
       events: [],
-      currentPage: props.params.page !== undefined ? parseInt(props.params.page) : 1
+      currentPage: this.handleUndefinedPage(props.params.page)
     };
+  }
+  handleUndefinedPage (page) {
+    return page !== undefined ? parseInt(page) : 1
   }
   changePage (offset) {
     this.setState({currentPage: this.state.currentPage + offset}, () => {
@@ -51,10 +54,8 @@ export default class Events extends React.Component {
     setInterval(this.loadEventsFromServer, 1800000);
   }
   componentWillReceiveProps (nextProps) {
-    if (nextProps.location.action === 'POP') {
-      const page =  nextProps.params.page;
-      this.changePage(parseInt(page) - this.state.currentPage)
-    }
+    const page = this.handleUndefinedPage(nextProps.params.page)// !== undefined ? parseInt(nextProps.params.page) : 1
+    this.changePage(page - this.state.currentPage)
   }
   render () {
     let prevPage = this.state.currentPage - 1
@@ -75,9 +76,14 @@ export default class Events extends React.Component {
     return (
       <div className='eventsContainer'>
         <h1>Events</h1>
-        <CardDeck>
+        <ReactCSSTransitionGroup
+          transitionName="events"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}
+          component={CardDeck}
+        >
           {eventThumbnailNodes}
-        </CardDeck>
+        </ReactCSSTransitionGroup>
         <Pagination hidden>
           <PaginationItem disabled={this.state.currentPage === 1}>
             <LinkContainer
@@ -91,7 +97,6 @@ export default class Events extends React.Component {
             <LinkContainer
               to={{pathname: `/eventbrite/events/page/${this.state.currentPage + 1}`}}
               onClick={() => this.changePage(1)}
-              key=""
             >
               <PaginationLink>Next</PaginationLink>
             </LinkContainer>

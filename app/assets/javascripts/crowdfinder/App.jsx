@@ -7,23 +7,30 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import React from 'react'
-import Events from './components/Events.jsx'
-import Event from './components/Event.jsx'
-import {Router, Route, Link, IndexRoute, browserHistory} from 'react-router'
-import 'bootstrap/dist/css/bootstrap.css';
-
-function NotFound() {
-  return <h1>404.. This page is not found!</h1>
-}
+import {Navbar, NavbarBrand} from 'reactstrap';
+import {IndexLinkContainer} from 'react-router-bootstrap';
 
 export default class App extends React.Component {
   render () {
     return (
-      <Router history={browserHistory}>
-        <Route path='/(eventbrite/events/page/:page)' component={Events} />
-        <Route path='/eventbrite/events(/:id)' component={Event} />
-        <Route path='*' component={NotFound} />
-      </Router>
+      <div>
+        <Navbar>
+          <IndexLinkContainer to="/">
+            <NavbarBrand>
+              <img
+                alt="CrowdFood"
+                src="http://i65.tinypic.com/20uda53.png"
+                height="30"
+              >
+              </img>
+              <span>CrowdFood</span>
+            </NavbarBrand>
+          </IndexLinkContainer>
+        </Navbar>
+        <div className="container">
+          {this.props.children}
+        </div>
+      </div>
     )
   }
 }
