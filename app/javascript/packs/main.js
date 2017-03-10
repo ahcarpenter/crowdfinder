@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Events from '../../assets/javascripts/crowdfinder//components/Events.jsx'
-import Event from '../../assets/javascripts/crowdfinder//components/Event.jsx'
+import Events from '../../assets/javascripts/crowdfinder/components/Events.jsx'
+import Event from '../../assets/javascripts/crowdfinder/components/Event.jsx'
 import {Router, Route, Link, IndexRoute, browserHistory} from 'react-router'
 import 'bootstrap/dist/css/bootstrap.css';
 import App from '../../assets/javascripts/crowdfinder/App.jsx'
